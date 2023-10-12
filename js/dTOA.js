@@ -92,21 +92,23 @@
 //!!"0"
 //true
 
+//Question 2 from exercises are found in 'working with data types.js'
+
 //You have rented some movies for your kids: The little mermaid (for 3 days), Brother Bear (for 5 days, they love it), and Hercules (1 day, you don't know yet if they're going to like it). If price for a movie per day is $3, how much will you have to pay?
 let moviePrice= 3;
 let mermaid = 3;
 let bear = 5;
 let hercules = 1;
 let totalPrice = moviePrice * (mermaid + bear + hercules);
-console.log("The total price of renting all three movies is", totalPrice)
+console.log("The total price of renting all three movies is $" + totalPrice)
 
 //Suppose you're working as a contractor for 3 companies: Google, Amazon and Facebook, they pay you a different rate per hour. Google pays $400, Amazon $380, and Facebook $350. How much will you receive in payment for this week? You worked 10 hours for Facebook, 6 hours for Google and 4 hours for Amazon.
 let facebook = 350
 let amazon = 380
 let google = 400
-let weeklyTotal = undefined
-weeklyTotal = (facebook * 10) + (amazon * 4) + (google * 6)
-console.log("The weekly total earned from working at all three companies is",weeklyTotal)
+
+let weeklyTotal = (facebook * 10) + (amazon * 4) + (google * 6)
+console.log("The weekly total earned from working at all three companies is $" + weeklyTotal)
 
 //Create a variable that holds a boolean value for each of the following conditions
 //the password must be at least 5 characters
@@ -125,5 +127,3 @@ console.log("Is the password at least 5 characters?", passwordLength)
 console.log("Does the password not include the username?", doesNotIncludeUsername)
 console.log("Is the username no more than 20 characters?", usernameLength)
 console.log("Neither the username nor password starts or ends with whitespace?", noWhitespace)
-
-
