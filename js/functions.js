@@ -20,9 +20,6 @@ console.log(sayHello('Tank'));
  *
  * console.log 'helloMessage' to check your work
  */
-function sayHello(name) {
-    return 'Hello, ' + name + '!';
-}
 
 let yourName = 'Taylor';
 let helloMessage = sayHello(yourName);
@@ -82,7 +79,7 @@ function calculateTip(tipPercentage, totalBill) {
     return tipPercentage * totalBill;
 }
 
-let tipAmount = calculateTip(0.20, 20);
+let tipAmount = calculateTip(0.15, 20).toFixed(2);
 console.log(tipAmount);
 
 /**
@@ -116,5 +113,5 @@ console.log(tipAmount);
 function applyDiscount(originalPrice, discountPercent) {
     return originalPrice - (originalPrice * discountPercent)
 }
-let finalPrice = applyDiscount(45.99, 0.12);
+let finalPrice = applyDiscount(45.99, 0.12).toFixed(2);
 console.log(finalPrice);
