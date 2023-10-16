@@ -92,6 +92,7 @@ console.log(tipAmount);
  * then display the dollar amount they should tip
  */
 
+//commented out because console.log didn't like the prompts
 // let billTotal = prompt("What is the total for your bill?");
 // let percentTip = prompt("How much would you like to tip?");
 // let amountTip = calculateTip(percentTip, billTotal);
