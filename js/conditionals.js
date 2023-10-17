@@ -176,7 +176,7 @@ if(enterNumber) {
     //prompt user for a number
     let userInput = prompt("Choose any number you'd like:")
     // Check if the user entered a number
-    let number = parseFloat(userInput);
+    let number = parseInt(userInput);
     if (!isNaN(number)) {
 
         // Check if the number is even or odd
