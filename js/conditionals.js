@@ -61,7 +61,7 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
 let analyzeColor = prompt('What is your favorite color').toLowerCase();
-switch(analyzeColor) {
+switch (analyzeColor) {
     case "red":
         console.log('Red apples are my favorite.');
         alert('Red apples are my favorite.');
@@ -115,25 +115,21 @@ switch(analyzeColor) {
  */
 
 function calculateTotal(luckyNum, totalAmount) {
-    if(luckyNum === 1) {
+    if (luckyNum === 1) {
         return totalAmount - (totalAmount * .10);
-    }
-    else if(luckyNum === 2) {
+    } else if (luckyNum === 2) {
         return totalAmount - (totalAmount * .25);
-    }
-    else if(luckyNum === 3) {
+    } else if (luckyNum === 3) {
         return totalAmount - (totalAmount * .35);
-    }
-    else if(luckyNum === 4) {
+    } else if (luckyNum === 4) {
         return totalAmount - (totalAmount * .50);
-    }
-    else if(luckyNum === 5) {
+    } else if (luckyNum === 5) {
         return totalAmount - (totalAmount * 1);
-    }
-    else {
+    } else {
         return totalAmount;
     }
 }
+
 console.log(calculateTotal(2, 100))
 /**
  * TODO:
@@ -172,11 +168,11 @@ console.log((`Your lucky number is ${luckyNumber}! Your price before the discoun
  * HINT: The way we prompt for a value could be improved
  */
 let enterNumber = confirm('Would you like to enter a number?');
-if(enterNumber) {
+if (enterNumber) {
     //prompt user for a number
     let userInput = prompt("Choose any number you'd like:")
     // Check if the user entered a number
-    let number = parseInt(userInput);
+    let number = parseFloat(userInput);
     if (!isNaN(number)) {
 
         // Check if the number is even or odd
