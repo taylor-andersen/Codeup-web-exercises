@@ -34,16 +34,25 @@
 
 //-------------------------------------------------------------
 
-let num = 100;
-console.log(num + ' is even');
-while(num > 0 ) {
-    num -= 5;
-    if (num % 2 === 0) {
-        console.log(num + ' is even');
-    } else {
-        console.log(num)
+// let num = 100;
+// console.log(num + ' is even');
+// while(num > 0 ) {
+//     num -= 5;
+//     if (num % 2 === 0) {
+//         console.log(num + ' is even');
+//     } else {
+//         console.log(num)
+//     }
+// }
+
+//--------------------------------------------------------------
+
+function oneThruHundred () {
+    for(let i = 2; i <= 100; i += 2){
+        console.log([i])
     }
 }
+oneThruHundred();
 
 //--------------------------------------------------------------
 
