@@ -56,3 +56,11 @@ oneThruHundred();
 
 //--------------------------------------------------------------
 
+let favMovies = ['Big Daddy', 'Step Brothers', 'Hot Rod', 'Superbad', 'Borat'];
+favMovies.sort();
+// favMovies.forEach((movie) =>
+// console.log(movie));
+
+favMovies.forEach(movies => {
+    console.log(movies)
+})
