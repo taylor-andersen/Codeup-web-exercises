@@ -27,4 +27,10 @@
 `);
     console.log(planetString);
 
+    let planetString2 = `<ul>
+<li>${planetsArray.join(`</li>
+<li>`)}</li>
+</ul>`;
+
+    console.log(planetString2);
 })();
