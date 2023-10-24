@@ -64,3 +64,17 @@ favMovies.sort();
 favMovies.forEach(movies => {
     console.log(movies)
 })
+
+//--------------------------------------------------------------
+
+const cars = [
+    {make : 'Nissan', model : 'Altima', color : 'Silver'},
+    {make : 'Mitsubishi', model : 'Lancer', color : 'Grey'},
+    {make : 'Ford', model : 'F-150', color : 'Black'},
+];
+cars.forEach(car => {
+    console.log(`I have owned a ${car.color} ${car.make} ${car.model}.`)
+})
+
+//--------------------------------------------------------------
+
