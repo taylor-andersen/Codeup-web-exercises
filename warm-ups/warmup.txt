@@ -3,12 +3,14 @@
 
 <head>
 <meta charset ='UTF-8'>
-<title></title>
+<title>Warmups!</title>
 </head>
 <body>
 <p>My ideal web development job would be a hybrid position, mainly working remotely. I'm somewhat of a home body and I also just enjoy working at
 my own pace and taking breaks when I need to or just grinding at 2am if I feel motivated. I still haven't decided on front-end or back-end as
 I don't have too much experience yet. I will be searching for a position with minimum 70k a year. I have a lot of prior IT experience and certifications,
 even if they don't directly apply to web development. I believe I could be a crucial addition to any team.</p>
+<p>By April 2024, I will be starting a hybrid/remote position within the IT career field. I would love to focus on web development but
+if I need to go back to networking or cyber-security, I will do that. In my new position, I will be making 70k+ not including disability pay.</p>
 </body>
 </html>
