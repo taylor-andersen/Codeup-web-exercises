@@ -1,4 +1,39 @@
 .fancy-header {
     color: purple; /* single line comment */
     text-decoration: underline;
+    text-align: center;
 }
+
+h3 {
+    color: salmon;
+    text-decoration: underline;
+}
+
+body {
+    background-color: lightgrey;
+    background-image: url('https://www.paradigmiq.com/wp-content/uploads/2021/11/Impact-Logo-1200x847%E2%80%93codeup.png');
+    background-size: cover; /* Adjust the sizing as needed, e.g., cover, contain, 100% 100% */
+    background-position: center center; /* Adjust the position as needed, e.g., center, top left, etc. */
+    background-attachment: fixed;
+    font-family: Oswald;
+}
+
+ul {
+    list-style-type: circle;
+}
+
+ol {
+    list-style-type: lower-roman;
+}
+
+table {
+    width: 100%;
+}
+tr {
+    background-color: #f0f0f0;
+}
+td {
+    padding: 10px;
+    font-size: 16px;
+}
+
