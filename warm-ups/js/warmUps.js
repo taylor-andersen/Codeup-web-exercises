@@ -78,3 +78,66 @@ cars.forEach(car => {
 
 //--------------------------------------------------------------
 
+let developers = [
+    {
+        name: "Jonathan",
+        languages: {
+            frontend: ["HTML", "JavaScript", "CSS"],
+            backend: ["Java"]
+        }
+    },
+    {
+        name: "Bonnie",
+        languages: {
+            frontend: ["JavaScript"],
+            backend: []
+        }
+    },
+    {
+        name: "Raj",
+        languages: {
+            frontend: [],
+            backend: ["C#", "Java", "Python"]
+        }
+    },
+    {
+        name: "Carmen",
+        languages: {
+            frontend: ["JavaScript", "HTML", "CSS", "React"],
+            backend: ["C#", "Java", "Python", "TypeScript"]
+        }
+    },
+]
+// function knowsJavaScript(people) {
+//     let coders = people.filter(person => person.languages.frontend.includes('JavaScript'));
+//     let coderNames = coders.map(names => names.name);
+//     return coderNames;
+// }
+// const javascriptExperts = knowsJavaScript(developers);
+// console.log(javascriptExperts);
+
+// function knowsJavaScript(developers) {
+//     let javascriptDevs = [];
+//     for (let i = 0; i < developers.length; i++) {
+//         if (developers[i].languages.frontend.includes("JavaScript")) {
+//             javascriptDevs.push(developers[i].name);
+//         }
+//     } return javascriptDevs
+// }
+// const javascriptExperts = knowsJavaScript(developers);
+// console.log(javascriptExperts);
+
+
+
+const knowsJavaScript = (arr) => {
+    let javaScriptDevs = [];
+    for(let i=0; i <arr.length; i++) {
+        for(let j = 0; j < arr[i].languages.frontend.length; j++) {
+            if (arr[i].languages.frontend[j] === 'JavaScript') {
+                javaScriptDevs.push(arr[i].name)
+            }
+        }
+    } return javaScriptDevs;
+}
+const javaScriptStinks = knowsJavaScript(developers)
+console.log(javaScriptStinks)
