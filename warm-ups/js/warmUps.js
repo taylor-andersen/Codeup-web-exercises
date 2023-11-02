@@ -177,9 +177,11 @@ console.log(javaScriptStinks)
 //function that accepts three arguments
 function changeColor (arrOfElements, bgColor, textColor) {
     for (let i = 0; i < arrOfElements.length; i++) {
+        //change the value to the inputted values
         arrOfElements[i].style.backgroundColor = bgColor;
         arrOfElements[i].style.color = textColor;
-} return arrOfElements
+}  //return the new array
+    return arrOfElements
 }
 
-console.log(changeColor([{el: 'button', style: {backgroundColor: 'white', color: 'black'}, content: 'Submit'}],'red', 'purple'))
+console.log(changeColor(elements,'red', 'purple'))
