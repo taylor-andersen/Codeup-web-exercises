@@ -4,7 +4,7 @@ body {
 }
 .page-wrapper {
     background-color: #D9D9D9;
-    z-index: 1;
+    z-index: -1;
 }
 .container.login {
     background-color: #FFFFFF;
@@ -111,13 +111,15 @@ button.btn.btn-login {
     position: fixed;
     bottom: 0;
     right: 0;
-    z-index: 1;
+    z-index: -1;
+    max-height: 15em;
 }
 #waveTop {
     position: fixed;
     bottom: 0;
     right: 0;
-    z-index: 1;
+    z-index: -10;
+
 }
 
 #close-button {

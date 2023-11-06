@@ -5,11 +5,14 @@
 }
 
 .no-account2 {
-    z-index: 11;
+    /*z-index: 11;*/
     text-decoration: none;
     margin-left: 1em;
 }
 
+.fixedPics {
+    /*z-index: -1;*/
+}
 
 /*
     The "page wrapper" is the outermost container for the page. It mimics
