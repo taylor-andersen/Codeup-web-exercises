@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Attributes and CSS Exercise</title>
+  <link rel="stylesheet" type="text/css" href="css/attributes-style.css">
+</head>
+<body>
+<div id="profile-card">
+  <img id="profile-pic" src="https://via.placeholder.com/150" alt="Profile Picture">
+  <h2 id="profile-name">John Doe</h2>
+  <p id="profile-desc">This is a sample description text for a profile card. JavaScript will be used to manipulate this card.</p>
+</div>
+<button id="toggle-btn">Toggle Background</button>
+<script src="js/attributes-script.js"></script>
+<script>
+  function updateProfile() {
+    const profilePic = document.getElementById('profile-pic');
+    profilePic.src = "img/codeup_arrow.png";
+
+    setTimeout(function () {
+      const profileName = document.getElementById('profile-name');
+      profileName.innerHTML = "<h2 id='profile-name'>Taylor Andersen</h2>";
+    }, 2000);
+
+    setTimeout(function () {
+      const profileDesc = document.getElementById('profile-desc');
+      profileDesc.classList.add('profile-desc');
+      profileDesc.style.color = 'green';
+      profileDesc.style.fontFamily = 'Impact';
+    }, 4000);
+
+    // setInterval(function () {
+    //   const profileCard = document.getElementById('profile-card');
+    //   profileCard.classList.toggle('profile-card');
+    //   let randomColor = "#" + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, "0");
+    //   profileCard.style.backgroundColor = randomColor;
+    // }, 2000);
+
+    setInterval(function () {
+      const profileCard = document.getElementById('profile-card');
+      profileCard.classList.toggle('profile-card');
+      let colorArr = ['blue', 'red', 'green', 'purple', 'yellow', 'indigo', 'brown', 'orange', 'teal', 'pink'];
+      let randomIndex = Math.floor(Math.random() * colorArr.length);
+      let randomColor = colorArr[randomIndex];
+      profileCard.style.backgroundColor = randomColor;
+    }, 2000);
+
+  }
+
+  setTimeout(updateProfile, 2000);
+
+  setTimeout(function () {
+    const profileName = document.getElementById('profile-name');
+    const newName = prompt('What is your name?');
+    profileName.innerHTML = `<h2 id='profile-name'>${newName}</h2>`
+  }, 10000)
+
+</script>
+</body>
+</html>
