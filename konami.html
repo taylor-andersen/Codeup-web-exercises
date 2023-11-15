@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+        background-image: url('img/contra.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    h1 {
+        color: white;
+    }
+    h2 {
+        color: darkred;
+    }
+</style>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2 id="life">Life Count: 3</h2>
+
+<script>
+    "use strict";
+    document.addEventListener("keyup", event => console.log(event.key));
+
+    const keysPressed = [];
+    document.addEventListener("keyup", event => { keysPressed.push(event.key);
+
+    const konamiCode =
+           keysPressed[0] === "ArrowUp" && keysPressed[1] === "ArrowUp"
+        && keysPressed[2] === "ArrowDown" && keysPressed[3] === "ArrowDown"
+        && keysPressed[4] === "ArrowLeft" && keysPressed[5] === "ArrowRight"
+        && keysPressed[6] === "ArrowLeft" && keysPressed[7] === "ArrowRight"
+        && keysPressed[8] === 'a' && keysPressed[9] === 'b' && keysPressed[10] === 'Enter';
+
+    if (konamiCode) {
+        const LifeCount = document.getElementById('life');
+        LifeCount.innerHTML = "<h2>Life Count: 30</h2>"
+        alert("You have added 30 lives!")
+        document.body.style.backgroundImage = "url(img/contraHD.jpeg"
+    }
+    });
+
+    setTimeout(function () {
+        keysPressed.length = 0;
+    }, 8000);
+
+</script>
+</body>
+</html>
