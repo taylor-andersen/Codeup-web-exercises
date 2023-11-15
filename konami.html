@@ -8,16 +8,80 @@
     }
     h1 {
         color: white;
+        font-size: 40px;
     }
     h2 {
+        font-size: 40px;
         color: darkred;
+    }
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes increaseSize {
+        0% {
+            font-size: 24px;
+        }
+        50% {
+            font-size: 30px;
+        }
+        100% {
+            font-size: 24px;
+        }
+    }
+
+    /*@keyframes bleedingColor {*/
+    /*    0% {*/
+    /*        background-position: 0% 50%;*/
+    /*    }*/
+    /*    50% {*/
+    /*        background-position: 100% 50%;*/
+    /*    }*/
+    /*    100% {*/
+    /*        background-position: 0% 50%;*/
+    /*    }*/
+    /*}*/
+
+    .bleeding-text {
+        animation: moveSmoke 5s infinite alternate;
+        background: repeating-linear-gradient(45deg, dimgrey, black, darkred);
+        color: transparent;
+        -webkit-text-stroke: 1px white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 5px;
+        /*animation: bleedingColor 4s infinite;*/
+        width: 250px;
+        height: 80px;
+        background-clip: text;
+        -webkit-background-clip: text;
+    }
+
+    @keyframes moveSmoke {
+        0% {
+        background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
     }
 </style>
 <head>
     <title>Konami Code</title>
 </head>
 <body>
-<h1>Konami Code</h1>
+<h1 id="title">Konami Code</h1>
 <p></p>
 <p></p>
 <p></p>
@@ -46,9 +110,13 @@
 
     if (konamiCode) {
         const LifeCount = document.getElementById('life');
-        LifeCount.innerHTML = "<h2>Life Count: 30</h2>"
+        LifeCount.innerHTML = "<div><h2 class='bleeding-text'>Konami Code Life Count: 30</h2></div>"
+        const Title = document.getElementById('title');
+        Title.innerHTML = "<h1></h1>"
         alert("You have added 30 lives!")
         document.body.style.backgroundImage = "url(img/contraHD.jpeg"
+        document.body.style.animation = 'pulse 2s infinite';
+        document.body.style.margin = '150px';
     }
     });
 
