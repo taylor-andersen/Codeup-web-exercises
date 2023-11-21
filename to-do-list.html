@@ -40,15 +40,20 @@
         event.preventDefault();
         const toDoInput = document.querySelector("#to-do");
         const newToDoItem = document.createElement("li");
-        newToDoItem.className = "to-do-item list-group-item d-flex justify-content-between align-items-center";
-        newToDoItem.innerHTML = `<p class="m-0">${toDoInput.value}</p><button class="btn btn-danger done-btn">Done</button>`
-        toDoList.appendChild(newToDoItem);
-        toDoInput.value = '';
-        //DELETE BUTTON
-        const doneButton = newToDoItem.querySelector('.done-btn');
-        doneButton.addEventListener('click', () => {
-            newToDoItem.remove();
-    })
+
+        if (toDoInput.value.trim() !== '') {
+            newToDoItem.className = "to-do-item list-group-item d-flex justify-content-between align-items-center";
+            newToDoItem.innerHTML = `<p class="m-0">${toDoInput.value}</p><button class="btn btn-danger done-btn">Done</button>`
+            toDoList.appendChild(newToDoItem);
+            toDoInput.value = '';
+            //DELETE BUTTON
+            const doneButton = newToDoItem.querySelector('.done-btn');
+            doneButton.addEventListener('click', () => {
+                newToDoItem.remove();
+            })
+        } else {
+            alert("Cannot leave input blank, please type your to-do.")
+        }
     }
     toDoForm.addEventListener('submit', handleUserInput);
 
