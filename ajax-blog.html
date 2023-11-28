@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<style>
+    body {
+        background-image: url("img/candy.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand">Legit Dallas Blogs.inc</a>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Which Post?" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Explore</button>
+        </form>
+    </div>
+</nav>
+<div class="m-5" id="posts">
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossOrigin="anonymous"></script>
+<script>
+    "use strict";
+
+
+    let blogPosts = document.getElementById("posts");
+
+    fetch('data/blog.json')
+        .then( response => {
+            return response.json()
+        })
+        .then( data => {
+            for (let i =0; i < data.length; i++) {
+                const blogContent = document.createElement('p')
+                blogContent.innerHTML = `<h1>${data[i].title}</h1><h5>Category: ${data[i].categories}</h5><p class="mt-4">${data[i].content}</p><p class="text-end">${data[i].date}</p>`
+                blogPosts.appendChild(blogContent)
+            }
+        })
+        .catch ( error => {
+            const errorCode = document.createElement('h1')
+            errorCode.innerHTML = "Error" + error
+            blogPosts.appendChild(errorCode)
+        })
+
+</script>
+</body>
+</html>
