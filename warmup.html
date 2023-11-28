@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+  #favorite {
+    font-size: 50px;
+  }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>WARMUP</title>
+</head>
+<body>
+<div id="favorite">
+<img id="img" src="" alt="pokemon" height="300px">
+</div>
+
+<script>
+  let newDiv = document.getElementById("favorite");
+  let newImg = document.getElementById("img");
+
+  fetch("https://pokeapi.co/api/v2/pokemon/salamence")
+          .then( response => {
+            return response.json();
+          })
+          .then( data => {
+            newImg.src = data.sprites.front_default;
+          })
+          .catch ( error => {
+            newDiv.innerHTML = `Error: ${error}`
+  })
+</script>
+</body>
+</html>
