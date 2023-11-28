@@ -1,28 +1,52 @@
-const username = prompt("Please enter your github username:");
-const url = `https://api.github.com/users/${username}/events/public`
-const octokit = new Octokit({
-    auth: GITHUB_API_KEY
-})
+function getLastCommitDate(username) {
+    // GitHub API URL for user events
+    const GITHUB_API_URL = `https://api.github.com/users/${username}/events`;
 
-await octokit.request('POST /repos/{owner}/{repo}/statuses/{sha}', {
-    owner: 'OWNER',
-    repo: 'REPO',
-    sha: 'SHA',
-    state: 'success',
-    target_url: "https://api.github.com/repos/octocat/Hello-World/statuses/6dcb09b5b57875f334f61aebed695e2e4193db5e",
-    description: 'The build succeeded!',
-    context: 'continuous-integration/jenkins',
-    headers: {
-        'X-GitHub-Api-Version': '2022-11-28'
-    }
-})
-fetch(url, {headers: {'Authorization': 'token' + GITHUB_API_KEY}})
-    .then(r => r.json())
-    .then(response => console.log(`${username}'s last commit was on ${response.state}`))
-    .catch(error => console.log(error));
+    // Return a new Promise
+    return new Promise((resolve, reject) => {
+        // Fetch data from the GitHub API
+        fetch(GITHUB_API_URL)
+            .then(response => {
+                // Checks if the response is successful. if not will 'throw' custom error response.
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch data. Status: ${response.status}`);
+                }
+                // Parse the response as JSON
+                return response.json();
+            })
+            .then(events => {
+                // Filter events to only include PushEvents
+                const pushEvents = events.filter(event => event.type === 'PushEvent');
 
+                // Check if there are any push events
+                if (pushEvents.length > 0) {
+                    // Get the date of the first (which is the latest) push event
+                    const lastCommitDate = new Date(pushEvents[0].created_at);
+                    // Resolve the promise with the formatted date string
+                    resolve(lastCommitDate.toDateString());
+                } else {
+                    // Reject the promise with an error if no push events are found
+                    reject(new Error('No push events found for the specified user.'));
+                }
+            })
+            .catch(error => {
+                // Reject the promise with an error if there's any issue during the process
+                reject(new Error(`Error fetching data: ${error.message}`));
+            });
+    });
+}
 
+document.addEventListener("DOMContentLoaded", function () {
 
+    const username = prompt("Please enter your github username:");
 
-
-
+    getLastCommitDate(username)
+        .then(lastCommitDate => {
+            alert(`Last commit date for ${username}: ${lastCommitDate}`);
+        })
+        .catch(error => {
+            console.error(error.message);
+        });
+    // Reset the input field value to an empty string
+    document.getElementById("searchBar").value = "";
+});
