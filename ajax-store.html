@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<style>
+    h1 {
+        text-align: center;
+        font-size: 30px;
+    }
+    #products {
+        text-align: center;
+    }
+    table {
+        align-content: center;
+    }
+    .table {
+        display: flex;
+        justify-content: center;
+        font-size: larger;
+    }
+</style>
+<head>
+    <title>Online Store</title>
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+
+<div class="table">
+<table id="products">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+</div>
+
+<script>
+    "use strict";
+    const products = document.getElementById('insertProducts');
+    // TODO: Create an AJAX GET request for the file under data/inventory.json
+    fetch('data/inventory.json')
+        .then( response => {
+            return response.json()
+        })
+        .then( data => {
+            for (let i = 0; i < data.length; i++) {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${data[i].title}</td><td>${data[i].quantity}</td><td>${data[i].price}</td><td>${data[i].categories}</td>`;
+                products.appendChild(row);
+            }
+        })
+        .catch( error => {
+            console.log("error" + error)
+        })
+
+    // TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+</script>
+
+</body>
+</html>
