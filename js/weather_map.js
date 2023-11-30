@@ -16,8 +16,30 @@ const defaultCoords = {
     lon: -96.948891
 }
 
+function updateWeatherCards(coords) {
+    // Reverse geocode to get the city name
+    reverseGeocode(coords, ACCESS_TOKEN)
+        .then(cityName => {
+            // Display the city name
+            document.getElementById('cityName').innerText = `Current City: ${cityName}`;
+
+            // Fetch and update weather cards
+            fetchWeatherData(coords);
+        })
+        .catch(error => {
+            console.error('Error getting city name:', error);
+        });
+}
+function reverseGeocode(coordinates, token) {
+    // Reuse your existing reverse geocoding function
+    return geocode({ lng: coordinates.lon, lat: coordinates.lat }, token)
+        .then(data => {
+            return data.features[0].place_name;
+        });
+}
+
 //GRABBING THE WEATHER INFORMATION
-function updateWeatherCards (coords) {
+function fetchWeatherData (coords) {
     fetch(`https://api.openweathermap.org/data/2.5/forecast?` +
         `lat=${coords.lat}&lon=${coords.lon}` +
         `&appid=${OPEN_WEATHER_KEY}` +
@@ -62,7 +84,7 @@ function updateWeatherCards (coords) {
             }
         });
 }
-updateWeatherCards(defaultCoords);
+fetchWeatherData(defaultCoords);
 
 
 //   WEATHER IMAGES
@@ -81,7 +103,7 @@ updateWeatherCards(defaultCoords);
 const marker = new mapboxgl.Marker({
     draggable: true
 })
-    .setLngLat([-96.948891, 32.814018])
+    .setLngLat(defaultCoords)
     .addTo(map);
 marker.on('dragend', (e) => {
     // Get the coordinates of the clicked point
