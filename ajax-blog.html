@@ -42,7 +42,7 @@
         })
         .then( data => {
             for (let i =0; i < data.length; i++) {
-                const blogContent = document.createElement('p')
+                const blogContent = document.createElement('div')
                 blogContent.innerHTML = `<h1>${data[i].title}</h1><h5>Category: ${data[i].categories}</h5><p class="mt-4">${data[i].content}</p><p class="text-end">${data[i].date}</p>`
                 blogPosts.appendChild(blogContent)
             }

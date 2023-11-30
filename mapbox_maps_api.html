@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tulsa Cuisine</title>
+    <!-- Mapbox CSS -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css' rel='stylesheet'/>
+    <!-- Custom CSS -->
+    <style>
+        .custom-popup {
+            padding: 5px;
+            border-radius: 5px;
+            height: 100px;
+        }
+
+        .popup-image {
+            height: 80%; /* Set the desired height */
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px 5px 0 0; /* If you want a rounded top */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome to Yokozuna!</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id="map" style="width: 70%; height: 400px;"></div>
+
+<!-- Access Token -->
+<script>
+    const ACCESS_TOKEN = 'pk.eyJ1IjoidGF5bG9yLWFuZGVyc2VuIiwiYSI6ImNscGtkcnowdDA3MGwydnBhaDZrZTV2YnUifQ.wDh-pv6i1NPlgSymFXjw7w'
+</script>
+
+<!-- Mapbox Geocoder Util Methods -->
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+<!-- Custom JS -->
+<script>
+
+    mapboxgl.accessToken = ACCESS_TOKEN;
+
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/satellite-v9',
+        zoom:11,
+        center: [-95.98, 36.05]
+    });
+
+
+    const yokoInfo = {
+        address: "Yokozuna, Tulsa",
+        popupHTML: "<p>Welcome to Yokozuna!</p>"
+    };
+
+    function placeMarkerAndPopup(info, token, map) {
+        geocode(info.address, ACCESS_TOKEN).then(coords => {
+            let popup = new mapboxgl.Popup({
+                closeButton: true,
+                anchor: 'bottom',
+                offset: 25
+            })
+                .setHTML(`
+            <div class="custom-popup">
+                <div class="popup-image" style="background-image: url('img/hot mess.jpeg');"></div>
+                <p>${info.popupHTML}</p>
+            </div>
+        `);
+
+            let marker = new mapboxgl.Marker()
+                .setLngLat([-95.92351758519149, 36.02988438726393])
+                .addTo(map)
+                .setPopup(popup);
+        });
+        marker.on('click', () => {
+            popup.addTo(map);
+        });
+    }
+
+
+    placeMarkerAndPopup(yokoInfo, ACCESS_TOKEN, map);
+
+</script>
+</body>
+</html>
