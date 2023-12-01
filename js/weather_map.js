@@ -125,6 +125,7 @@ map.on('click', (e) => {
         lng: e.lngLat.lng
     };
     moveMarker(clickedCoords);
+    map.setCenter(clickedCoords);
 });
 
 function moveMarker(coords) {
