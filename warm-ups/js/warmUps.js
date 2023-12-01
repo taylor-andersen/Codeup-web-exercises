@@ -201,7 +201,7 @@
 // }
 
 
-function diagonalDifference2(arr) {
+function diagonalDifferenceOld(arr) {
     // Write your code here
     let arr0 = arr[0];
     let arr1 = arr[1];
@@ -215,11 +215,11 @@ function diagonalDifference2(arr) {
 
 function diagonalDifference(arr) {
     //grab the index's of the arr's
-    const leftToRight = arr.map((row, col) => row[col]);
-    const rightToLeft = arr.reverse().map((row, col) => row[col]);
+    const leftToRight = arr.map((row, index) => row[index]);
+    const rightToLeft = arr.reverse().map((row, index) => row[index]);
     //calculate the sum
-    const leftToRightSum = leftToRight.reduce((sum, value) => sum + value, 0);
-    const rightToLeftSum = rightToLeft.reduce((sum, value) => sum + value, 0);
+    const leftToRightSum = leftToRight.reduce((sum, num) => sum + num, 0);
+    const rightToLeftSum = rightToLeft.reduce((sum, num) => sum + num, 0);
     //return absolute value
     return Math.abs(leftToRightSum - rightToLeftSum);
 }
