@@ -7,46 +7,83 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Agbalumo&family=Carrois+Gothic&family=Kenia&family=Montserrat+Alternates&family=Oswald:wght@300&family=Play&display=swap"
+          rel="stylesheet">
 </head>
 
 <body>
-<!--NAVBAR-->
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<!-------------------------------------------NAVBAR--------------------------------------->
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Extreme Weather Reports</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="https://i.chzbgr.com/full/9379907840/h60FAA8D8/where-the-meteorologist-says-further-south-you-should-be-prepared-for-three-maybe-four-inches">It will be Sunny! Unless it rains.</a>
+                    <a class="nav-link active" aria-current="page"
+                       href="https://i.chzbgr.com/full/9379907840/h60FAA8D8/where-the-meteorologist-says-further-south-you-should-be-prepared-for-three-maybe-four-inches">It
+                        will be Sunny! Unless it rains.</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="City Name" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <input id='searchInput' class="form-control me-2" type="search" placeholder="City Name"
+                       aria-label="Search">
+                <button id='searchBtn' class="btn btn-outline-dark" type="submit">Search</button>
             </form>
         </div>
     </div>
 </nav>
+<!--------------------------------------------------------------------------------------------------------->
 
 
-<!--CARDS-->
-<div class="cardContainer container mt-4">
-    <div class="row">
+<!--BODY CONTENT-->
+<p class='cityText' id="cityName">Current Viewing Address: Irving, Texas</p>
+
+<div class="row">
+    <!--------------------MAP-------------------->
+    <div id="map" class="col" style="width: 60%; height: 446.66px;"></div>
+    <!-------------------NEWS-------------------->
+    <div class="col">
+        <p id="trend">Trending Today</p>
+        <div class="row">
+            <div class="col-6">
+                <div id='newsCard' class="card" style="width: 18rem;">
+                    <img src="img/winterStorm.jpeg" class="card-img-top" alt="Winter Storm">
+                    <div class="card-body">
+                        <h5 class="card-title">Winter Storm Approaches The South!</h5>
+                        <p class="card-text">Texas grid faces winter after failed attempt to get more power online. Who
+                            built these things?</p>
+                        <a href="#" class="btn btn-primary">More News</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div id='newsCard2' class="card" style="width: 18rem;">
+                    <img src="img/carsWinter.jpeg" class="card-img-top" alt="Winter Storm">
+                    <div class="card-body">
+                        <h5 class="card-title">What To Do and Not To Do To Your Car In Winter</h5>
+                        <p class="card-text">Here are some dos and don’ts to help you keep expensive, weather-related
+                            repairs to a minimum.</p>
+                        <a href="#" class="btn btn-primary">More News</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<p id="cityName">Current City: Irving, Texas</p>
-<!--MAP-->
-<div id="map" style="width: 96%; height: 600px;"></div>
+<!------------------------------------CARDS------------------------------------------->
+<div class="cardContainer container mt-4">
+    <div id='cardRow' class="row">
+    </div>
+</div>
 
 
-
-
-
-
-<!--SCRIPTS-->
+<!------------------------------------SCRIPTS------------------------------------>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
