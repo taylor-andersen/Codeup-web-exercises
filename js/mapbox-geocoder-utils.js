@@ -1,6 +1,6 @@
 "use strict";
 
-function geocode(cityName, token) {
+export default function geocode(cityName, token) {
     let baseUrl = 'https://api.mapbox.com';
     let endPoint = '/geocoding/v5/mapbox.places/';
     return fetch(`${baseUrl}${endPoint}${encodeURIComponent(cityName)}.json?access_token=${token}`)
@@ -16,7 +16,7 @@ function geocode(cityName, token) {
 }
 
 
-function reverseGeocode(coordinates, token) {
+export default function reverseGeocode(coordinates, token) {
     let baseUrl = 'https://api.mapbox.com';
     let endPoint = '/geocoding/v5/mapbox.places/';
     return fetch(`${baseUrl}${endPoint}${coordinates.lng},${coordinates.lat}.json?access_token=${token}`)
