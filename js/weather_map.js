@@ -1,7 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------MAPS JS
 mapboxgl.accessToken = ACCESS_TOKEN;
-import geocode from "./mapbox-geocoder-utils.js";
-import reverseGeocode from "./mapbox-geocoder-utils.js";
+import { geocode, reverseGeocode } from "./mapbox-geocoder-utils.js";
 
 // ----------------------------------------------------------------------------------------------------------DEFAULT MAP
 const map = new mapboxgl.Map({

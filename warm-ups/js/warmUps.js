@@ -223,6 +223,24 @@ function diagonalDifference(arr) {
     //return absolute value
     return Math.abs(leftToRightSum - rightToLeftSum);
 }
+//
+// console.log(diagonalDifference([ [ 11, 2, 4 ], [ 4, 5, 6 ], [ 10, 8, -12 ] ]
+// ))
 
-console.log(diagonalDifference([ [ 11, 2, 4 ], [ 4, 5, 6 ], [ 10, 8, -12 ] ]
-))
+function gradingStudents(grades) {
+    return grades.map(grade => {
+        if (grade >= 38) {
+            if ((grade % 5) >= 3) {
+                let remainder = grade % 5;
+                let round = 5-remainder;
+                return grade + round;
+            } else {
+                return grade;
+            }
+        } else {
+            return grade;
+        }
+    })
+}
+
+// console.log(gradingStudents([73, 67, 38, 33]))
