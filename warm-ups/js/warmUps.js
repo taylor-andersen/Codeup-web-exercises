@@ -244,3 +244,38 @@ function gradingStudents(grades) {
 }
 
 // console.log(gradingStudents([73, 67, 38, 33]))
+
+function compareTriplets(a, b) {
+    let count1 = 0;
+    let count2 = 0;
+    for (let i = 0; i < 4; i++) {
+        if (a[i] > b[i]) {
+            count1++
+        } else if (a[i] < b[i]){
+            count2++
+        }
+    } return [count1, count2]
+}
+
+console.log(compareTriplets([17, 16, 30],
+[99, 16, 8]))
+
+function bonAppetit(bill, k, b) {
+    // Write your code here
+    //Find sum of all numbers in array
+    let billSum = bill.reduce((sum, num) => sum + num, 0);
+    //define which number is not 'eaten'
+    let noEat = bill[k];
+    //find what she should pay
+    let pricePaid = (billSum - noEat)/2;
+    //find refund amount
+    let refundPrice = (billSum/2) - pricePaid;
+    //return results
+    if (b === pricePaid) {
+        console.log('Bon Appetit');
+    } else {
+        console.log(refundPrice);
+    }
+}
+
+console.log(bonAppetit([3, 10 ,2 ,9], 1, 12))
